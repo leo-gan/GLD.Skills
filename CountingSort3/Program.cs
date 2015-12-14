@@ -3,20 +3,20 @@
 namespace CountingSort2 {
     internal class Program {
         private static void Main(string[] args) {
-            int records = Convert.ToInt32(Console.ReadLine());
-            int[] indice = new int[records]; 
-            string[] values = new string[records];
+            var records = Convert.ToInt32(Console.ReadLine());
+            var indice = new int[records]; 
+            var values = new string[records];
             var counters = new int[100];
-            for (int i = 0; i < records; i++) {
+            for (var i = 0; i < records; i++) {
                 var stringItems = Console.ReadLine().Split(' ');
                 indice[i] = Convert.ToInt32(stringItems[0]);
                 values[i] = stringItems[1];
                 counters[indice[i]]++;
             }
 
-            int cummulativeSum = 0;
-            for (var index = 0; index < counters.Length; index++) {
-                cummulativeSum += counters[index];
+            var cummulativeSum = 0;
+            foreach (var indexCounter in counters) {
+                cummulativeSum += indexCounter;
                 Console.Write(cummulativeSum + " ");
             }
         }
