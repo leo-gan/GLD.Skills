@@ -69,18 +69,18 @@ namespace DijkstraSortestReach2 {
         private static string Test(IReadOnlyList<int[]> nodeMatrix, IReadOnlyList<Node> nodes, List<int> unlinkedNodes) {
             while (HasUnvisitedNodes(nodes, unlinkedNodes)) {
                 // picks the unvisited vertex with the lowest-distance,
-                var minDistance = 0;
                 var nodeIdWithMinDistance = 0;
-                nodeIdWithMinDistance = NodeIdWithMinDistance(nodes, nodeIdWithMinDistance, ref minDistance);
+                nodeIdWithMinDistance = NodeIdWithMinDistance(nodes, nodeIdWithMinDistance);
                 //calculates the distance through it to each unvisited neighbor, 
                 for (var i = 0; i < nodes.Count; i++) {
                     if (nodeIdWithMinDistance == i) continue; // neighbor for itself
                     if (nodes[i].IsVisited) continue;
-                    //and updates the neighbor's distance if smaller. 
                     if (nodeMatrix[nodeIdWithMinDistance][i] == 0) continue;
-                    if (nodes[i].Distance == int.MaxValue) nodes[i].Distance = minDistance;
-                    if (nodes[i].Distance <= minDistance || nodes[i].Distance == 0)
-                        nodes[i].Distance += nodeMatrix[nodeIdWithMinDistance][i];
+                    if (nodes[i].Distance > nodes[nodeIdWithMinDistance].Distance + nodeMatrix[nodeIdWithMinDistance][i]) 
+                        nodes[i].Distance = nodes[nodeIdWithMinDistance].Distance + nodeMatrix[nodeIdWithMinDistance][i];
+                    //and updates the neighbor's distance if smaller. 
+                    //if (nodes[i].Distance <= minDistance || nodes[i].Distance == 0)
+                    //    nodes[i].Distance += nodeMatrix[nodeIdWithMinDistance][i];
                 }
                 //Mark visited (set to red) when done with neighbors.
                 nodes[nodeIdWithMinDistance].IsVisited = true;
@@ -88,8 +88,9 @@ namespace DijkstraSortestReach2 {
             return GetResult(nodes);
         }
 
-        private static int NodeIdWithMinDistance(IReadOnlyList<Node> nodes, int nodeIdWithMinDistance, ref int minDistance) {
+        private static int NodeIdWithMinDistance(IReadOnlyList<Node> nodes, int nodeIdWithMinDistance) {
             var firstId = true;
+            var minDistance = int.MaxValue;
             foreach (var node in nodes.Where(node => !node.IsVisited)) {
                 if (firstId) {
                     nodeIdWithMinDistance = node.Id;
@@ -99,7 +100,7 @@ namespace DijkstraSortestReach2 {
                 if (node.Distance >= minDistance) continue;
                 nodeIdWithMinDistance = node.Id;
                 minDistance = node.Distance;
-            }
+           }
             return nodeIdWithMinDistance;
         }
 
