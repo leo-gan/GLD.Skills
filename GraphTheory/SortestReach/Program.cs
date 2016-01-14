@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SortestReach {
+namespace DijkstraSortestReach2 {
     internal class Node {
         public Node(int id) {
             Id = id;
@@ -33,7 +33,7 @@ namespace SortestReach {
                     nodeMatrix[nodeX][nodeY] = nodeMatrix[nodeY][nodeX] = 6;
                 }
                 var nodes = CreateNodeArray(numberOfNodes);
-                var startNodeId = Convert.ToInt32(Console.ReadLine()) - 1;
+                var startNodeId = Convert.ToInt64(Console.ReadLine()) - 1;
                 nodes[startNodeId].Distance = 0;
 
                 var unlinkedNodes = CreateUnlinkedNodes(numberOfNodes, nodeMatrix);
@@ -66,45 +66,40 @@ namespace SortestReach {
             return nodes;
         }
 
-        private static string Test(IReadOnlyList<int[]> nodeMatrix, IReadOnlyList<Node> nodes, List<int> unlinkedNodes) {
+        private static string Test(IReadOnlyList<int[]> nodeMatrix, Node[] nodes, List<int> unlinkedNodes) {
             while (HasUnvisitedNodes(nodes, unlinkedNodes)) {
-                // picks the unvisited vertex with the lowest-distance,
-                var minDistance = 0;
-                var nodeIdWithMinDistance = 0;
-                nodeIdWithMinDistance = NodeIdWithMinDistance(nodes, nodeIdWithMinDistance, ref minDistance);
-                //calculates the distance through it to each unvisited neighbor, 
-                for (var i = 0; i < nodes.Count; i++) {
-                    if (nodeIdWithMinDistance == i) continue; // neighbor for itself
+                var curNodeId = NodeIdWithMinDistance(nodes);
+                for (var i = 0; i < nodes.Length; i++) {
+                    if (curNodeId == i) continue; // neighbor for itself
                     if (nodes[i].IsVisited) continue;
-                    //and updates the neighbor's distance if smaller. 
-                    if (nodeMatrix[nodeIdWithMinDistance][i] == 0) continue;
-                    if (nodes[i].Distance == int.MaxValue) nodes[i].Distance = minDistance;
-                    if (nodes[i].Distance <= minDistance || nodes[i].Distance == 0)
-                        nodes[i].Distance += nodeMatrix[nodeIdWithMinDistance][i];
+                    if (nodeMatrix[curNodeId][i] == 0) continue; // startId
+                    if (nodes[i].Distance > nodes[curNodeId].Distance + nodeMatrix[curNodeId][i])
+                        nodes[i].Distance = nodes[curNodeId].Distance + nodeMatrix[curNodeId][i];
                 }
-                //Mark visited (set to red) when done with neighbors.
-                nodes[nodeIdWithMinDistance].IsVisited = true;
+                nodes[curNodeId].IsVisited = true;
             }
             return GetResult(nodes);
         }
 
-        private static int NodeIdWithMinDistance(IReadOnlyList<Node> nodes, int nodeIdWithMinDistance, ref int minDistance) {
+        private static int NodeIdWithMinDistance(IReadOnlyList<Node> nodes) {
             var firstId = true;
+            var nodeIdWithMinDistance = 0;
             foreach (var node in nodes.Where(node => !node.IsVisited)) {
                 if (firstId) {
                     nodeIdWithMinDistance = node.Id;
-                    minDistance = node.Distance;
                     firstId = false;
+                    continue;
                 }
-                if (node.Distance >= minDistance) continue;
+                if (node.Distance >= nodes[nodeIdWithMinDistance].Distance) continue;
                 nodeIdWithMinDistance = node.Id;
-                minDistance = node.Distance;
             }
             return nodeIdWithMinDistance;
         }
 
         private static string GetResult(IEnumerable<Node> nodes) {
-            var result = nodes.Where(node => node.Distance != 0).Aggregate<Node, string>(null, (current, node) => current + ((node.Distance == int.MaxValue ? -1 : node.Distance) + " "));
+            var result = nodes.Where(node => node.Distance != 0)
+                .Aggregate<Node, string>(null,
+                    (current, node) => current + ((node.Distance == int.MaxValue || node.Distance < 0 ? -1 : node.Distance) + " "));
             return result.Trim();
         }
 
@@ -122,8 +117,8 @@ namespace SortestReach {
             int x;
             for (x = 0; x < numberOfNodes; x++) {
                 distanceMatrix[x] = new int[numberOfNodes];
-                for (var y = 0; y < numberOfNodes; y++)
-                    distanceMatrix[x][y] = 0;
+            //    for (var y = 0; y < numberOfNodes; y++)
+            //        distanceMatrix[x][y] = 0;
             }
             return distanceMatrix;
         }

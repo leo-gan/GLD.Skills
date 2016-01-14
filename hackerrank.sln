@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortestReach", "GraphTheory
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DijkstraShortestReach2", "DijkstraShortestReach2\DijkstraShortestReach2.csproj", "{5F45584E-D158-4127-AAA7-42FB5CD50090}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimsSpecialSubtree", "PrimsSpecialSubtree\PrimsSpecialSubtree.csproj", "{B9AA2FEA-E15B-4FB0-A777-4E9DD6D9618A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{5F45584E-D158-4127-AAA7-42FB5CD50090}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F45584E-D158-4127-AAA7-42FB5CD50090}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F45584E-D158-4127-AAA7-42FB5CD50090}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9AA2FEA-E15B-4FB0-A777-4E9DD6D9618A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9AA2FEA-E15B-4FB0-A777-4E9DD6D9618A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9AA2FEA-E15B-4FB0-A777-4E9DD6D9618A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9AA2FEA-E15B-4FB0-A777-4E9DD6D9618A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,5 +152,6 @@ Global
 		{5327A619-FA7B-4F9F-B1D3-B3DEE1FE9E6B} = {AB856F49-00E9-4F10-8047-AF255F7101C3}
 		{C9FCECF2-254E-4BD2-A0B3-27B492CDE160} = {29428942-DD37-435E-AC08-8024A93DD107}
 		{5F45584E-D158-4127-AAA7-42FB5CD50090} = {29428942-DD37-435E-AC08-8024A93DD107}
+		{B9AA2FEA-E15B-4FB0-A777-4E9DD6D9618A} = {29428942-DD37-435E-AC08-8024A93DD107}
 	EndGlobalSection
 EndGlobal

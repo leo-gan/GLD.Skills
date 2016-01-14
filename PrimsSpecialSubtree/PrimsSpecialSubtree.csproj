@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5F45584E-D158-4127-AAA7-42FB5CD50090}</ProjectGuid>
+    <ProjectGuid>{B9AA2FEA-E15B-4FB0-A777-4E9DD6D9618A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DijkstraShortestReach2</RootNamespace>
-    <AssemblyName>DijkstraShortestReach2</AssemblyName>
+    <RootNamespace>PrimsSpecialSubtree</RootNamespace>
+    <AssemblyName>PrimsSpecialSubtree</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,9 +48,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestCase2.Input.txt" />
     <Content Include="TestCase1.Input.txt" />
-    <Content Include="TestCase2.Output.txt" />
     <Content Include="TestCase1.Output.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
