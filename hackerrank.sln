@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtopianTree", "UtopianTree\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greedy.JimAndOrders", "Greedy.JimAndOrders\Greedy.JimAndOrders.csproj", "{73C0997D-DEFC-483E-8BB9-A1989D151D36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greedy.AlgorithmicCrush", "Greedy.AlgorithmicCrush\Greedy.AlgorithmicCrush.csproj", "{070D2F5F-BC3E-4460-87EB-E403EE440F1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{73C0997D-DEFC-483E-8BB9-A1989D151D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73C0997D-DEFC-483E-8BB9-A1989D151D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73C0997D-DEFC-483E-8BB9-A1989D151D36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{070D2F5F-BC3E-4460-87EB-E403EE440F1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{070D2F5F-BC3E-4460-87EB-E403EE440F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{070D2F5F-BC3E-4460-87EB-E403EE440F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{070D2F5F-BC3E-4460-87EB-E403EE440F1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,5 +173,6 @@ Global
 		{B9AA2FEA-E15B-4FB0-A777-4E9DD6D9618A} = {29428942-DD37-435E-AC08-8024A93DD107}
 		{8554A4D9-B812-44D8-874A-B37C8D0A0C8E} = {4CB815E2-6C88-408C-9E20-8E1D9EF2A26D}
 		{73C0997D-DEFC-483E-8BB9-A1989D151D36} = {4CB815E2-6C88-408C-9E20-8E1D9EF2A26D}
+		{070D2F5F-BC3E-4460-87EB-E403EE440F1E} = {4CB815E2-6C88-408C-9E20-8E1D9EF2A26D}
 	EndGlobalSection
 EndGlobal
