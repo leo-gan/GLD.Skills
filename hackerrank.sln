@@ -53,6 +53,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greedy.JimAndOrders", "Gree
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greedy.AlgorithmicCrush", "Greedy.AlgorithmicCrush\Greedy.AlgorithmicCrush.csproj", "{070D2F5F-BC3E-4460-87EB-E403EE440F1E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Math", "Math", "{F841186E-1989-4423-A771-6480633D9473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SherlokAndMovingTiles", "Math\SherlokAndMovingTiles\SherlokAndMovingTiles.csproj", "{EDCAB66F-7DB4-4EAE-AE24-AED1FB0A715B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +151,10 @@ Global
 		{070D2F5F-BC3E-4460-87EB-E403EE440F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{070D2F5F-BC3E-4460-87EB-E403EE440F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{070D2F5F-BC3E-4460-87EB-E403EE440F1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDCAB66F-7DB4-4EAE-AE24-AED1FB0A715B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDCAB66F-7DB4-4EAE-AE24-AED1FB0A715B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDCAB66F-7DB4-4EAE-AE24-AED1FB0A715B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDCAB66F-7DB4-4EAE-AE24-AED1FB0A715B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -174,5 +182,6 @@ Global
 		{8554A4D9-B812-44D8-874A-B37C8D0A0C8E} = {4CB815E2-6C88-408C-9E20-8E1D9EF2A26D}
 		{73C0997D-DEFC-483E-8BB9-A1989D151D36} = {4CB815E2-6C88-408C-9E20-8E1D9EF2A26D}
 		{070D2F5F-BC3E-4460-87EB-E403EE440F1E} = {4CB815E2-6C88-408C-9E20-8E1D9EF2A26D}
+		{EDCAB66F-7DB4-4EAE-AE24-AED1FB0A715B} = {F841186E-1989-4423-A771-6480633D9473}
 	EndGlobalSection
 EndGlobal
