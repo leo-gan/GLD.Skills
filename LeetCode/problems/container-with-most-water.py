@@ -2,7 +2,7 @@ class Solution:
     def maxArea(self, height):
         """
         :type height: List[int]
-        :rtype: int
+        :rtype: int It is unclear
         """
         l= 0
         r = len(height)-1
