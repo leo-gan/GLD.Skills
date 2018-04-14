@@ -1,6 +1,6 @@
 def insertion_sort(ar):
-    for i in range(len(ar)+1):
-        for ii in range(i-1, 0, -1):
+    for i in range(len(ar)):
+        for ii in range(i, 0, -1):
             if ar[ii] < ar[ii-1]:
                 ar[ii], ar[ii-1] = ar[ii-1], ar[ii]
                 print(ar)
