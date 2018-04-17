@@ -5,6 +5,7 @@ def bubble_sort(ar):
                 ar[ii], ar[ii+1] = ar[ii+1], ar[ii]
                 print(ar)
 
+
 import random
 def main():
     ar = random.sample(range(1,100), 20)
