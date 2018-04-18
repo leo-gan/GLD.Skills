@@ -29,7 +29,7 @@ def main():
     # lines = readlines()
     while True:
         try:
-            # line = next(lines)
+            # line = _next(lines)
             # height = stringToIntegerList(line);
             # 4913370
             height = [
