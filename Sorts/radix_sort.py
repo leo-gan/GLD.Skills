@@ -9,8 +9,10 @@ def list_to_baskets(ar, base, position):
 def baskets_to_list(baskets):
     return sum(baskets, [])
 
+import math
 def radix_sort(ar):
-    base = 10
+    base = int(math.sqrt(max(ar)))
+    print('base:', base)
     pos = 0 # right side
     print(base**pos, max(ar))
     while (base**(pos)) < max(ar):
