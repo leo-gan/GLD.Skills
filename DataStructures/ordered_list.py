@@ -2,32 +2,47 @@ class Node:
     def __init__(self, init_val=None):
         self._data = init_val
         self._next = None
-
-    @property
-    def data(self):
-        '''A value, stored in this Node object.'''
+    #
+    # @property
+    # def data(self):
+    #     '''A value, stored in this Node object.'''
+    #     return self._data
+    #
+    # @data.setter
+    # def data(self, val):
+    #     self._data = val
+    #
+    # @data.deleter
+    # def data(self):
+    #     self._data = None
+    #
+    # @property
+    # def next(self):
+    #     '''A linked Node object.'''
+    #     return self._next
+    # @next.setter
+    # def next(self, val):
+    #     self._next = val
+    # @next.deleter
+    # def next(self):
+    #     self._next = None
+    def set_data(self, data):
+        self._data = data
+    def get_data(self):
         return self._data
-
-    @data.setter
-    def data(self, val):
-        self._data = val
-
-    @data.deleter
-    def data(self):
+    def del_data(self):
         self._data = None
+    data = property(get_data, set_data, del_data, 'A value, stored in this Node object.')
 
-    @property
-    def next(self):
-        '''A linked Node object.'''
+    def set_next(self, next):
+        self._next = next
+    def get_next(self):
         return self._next
-    @next.setter
-    def next(self, val):
-        self._next = val
-    @next.deleter
-    def next(self):
+    def del_next(self):
         self._next = None
+    next = property(get_next, set_next, del_next, 'A linked Node object.')
 
-class UnorderedList:
+class OrderedList:
     def __init__(self):
         self._head = None # Node()
     def _get_last_node(self):
@@ -41,25 +56,38 @@ class UnorderedList:
     def search(self, val):
         cur = self._head
         while cur != None:
-            if cur.data.data == val:
+            if (cur.data == val):
                 return True
+            if (cur.next != None and
+                cur.next.data > val):
+                break
             cur = cur.next
         return False
 
     def add(self, val):
         tmp = Node(val)
-        tmp.next = self._head
-        self._head = tmp
+        if self._head == None:
+            self._head = tmp
+        elif self._head.data >= val:
+            tmp.next, self._head = self._head, tmp
+        else:
+            prev = cur = self._head
+            while cur != None and val > cur.data:
+                prev, cur = cur, cur.next
+            #if cur
+            tmp.next = cur
+            prev.next = tmp
 
     def remove(self, item):
         if self._head == None:
             return False
-        if self._head.data.data == item:
+        if self._head.data == item:
+        #if self._head.get_data().get_data() == item:
             self._head = self._head.next
             return True
         prev = cur = self._head
         while cur != None:
-            if cur.data.data == item:
+            if cur.data == item:
                 prev.next = cur.next
                 return True
             prev, cur = cur, cur.next
@@ -78,14 +106,14 @@ class UnorderedList:
 
     def print(self):
         cur = self._head
-        print('UnorderedList: size =', self.size(), end=': ')
+        print('OrderedList: size =', self.size(), end=': ')
         if cur == None:
             print('Empty')
             return
-        print('->', cur.data.data, end=' ')
+        print('->', cur.data, end=' ')
         while cur.next != None:
             cur = cur.next
-            print('->', cur.data.data, end=' ')
+            print('->', cur.data, end=' ')
         print('')
 
 
@@ -95,15 +123,17 @@ nxt = Node(23)
 lst.next = nxt
 print(lst.data, lst.next.data)
 
-ul = UnorderedList()
+ul = OrderedList()
 ul.print()
-ul.add(Node(1))
+ul.add(3)
 ul.print()
-ul.add(Node(2))
+ul.add(1)
 ul.print()
-ul.add(Node(3))
+ul.add(1)
 ul.print()
-ul.add(Node(4))
+ul.add(4)
+ul.print()
+ul.add(2)
 ul.print()
 _ = [print('search({})={}'.format(i, ul.search(i))) for i in range(ul.size()+2)]
 
@@ -120,7 +150,7 @@ ul.print()
 ul.remove(3)
 print('removed', 3, end=' : ')
 ul.print()
-ul.remove(3)
-print('removed', 3, end=' : ')
+ul.remove(1)
+print('removed', 1, end=' : ')
 ul.print()
 
