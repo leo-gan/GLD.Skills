@@ -13,14 +13,15 @@ class Queue:
     def isEmpty(self):
         return len(self.store) == 0
 
-import random
-ar = random.sample(range(1, 1000), 20)
-print('original:', ar)
-q = Queue()
-[q.enqueue(el) for el in ar]
-print('queue.store:', q.store)
-print('peek()', q.peek())
-deq = []
-for i in range(q.size()):
-    print('dequeued:', q.dequeue())
-print('dequeued store:', q.store)
+if __name__ == '__main__':
+    import random
+    ar = random.sample(range(1, 1000), 20)
+    print('original:', ar)
+    q = Queue()
+    [q.enqueue(el) for el in ar]
+    print('queue.store:', q.store)
+    print('peek()', q.peek())
+    deq = []
+    for i in range(q.size()):
+        print('dequeued:', q.dequeue())
+    print('dequeued store:', q.store)

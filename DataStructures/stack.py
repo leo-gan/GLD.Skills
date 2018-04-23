@@ -18,11 +18,13 @@ class Stack:
     def isEmpty(self):
         return len(self.stack) == 0
 
-import random
-s = Stack()
-ar = random.sample(range(1,100), 20)
-print('original:', ar)
-[s.push(el) for el in ar]
-print( 'peek:', s.peek())
-print('internal:', s.stack)
-print('pop-s:', [s.pop() for i in range(s.len())])
+if __name__ == '__main__':
+
+    import random
+    s = Stack()
+    ar = random.sample(range(1,100), 20)
+    print('original:', ar)
+    [s.push(el) for el in ar]
+    print( 'peek:', s.peek())
+    print('internal:', s.stack)
+    print('pop-s:', [s.pop() for i in range(s.len())])
