@@ -23,7 +23,7 @@ class BinaryTree:
     #     self.left = None
     left = property(get_left, set_left, None, 'A left branch of the Binary Tree.')
 
-    def get_right(self):
+    def get_right(self): 
         return self._right
     def set_right(self, obj):
         tmp = BinaryTree(obj)
