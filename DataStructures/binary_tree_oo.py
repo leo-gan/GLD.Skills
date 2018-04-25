@@ -23,7 +23,7 @@ class BinaryTree:
     #     self.left = None
     left = property(get_left, set_left, None, 'A left branch of the Binary Tree.')
 
-    def get_right(self): 
+    def get_right(self):
         return self._right
     def set_right(self, obj):
         tmp = BinaryTree(obj)
@@ -34,6 +34,25 @@ class BinaryTree:
     # def del_right(self):
     #     self.right = None
     right = property(get_right, set_right, None, 'A right branch of the Binary Tree.')
+
+def preorder(tree):
+    if tree:
+        print(tree.root)
+        preorder(tree.left)
+        preorder(tree.right)
+
+def postorder(tree):
+    if tree != None:
+        postorder(tree.left)
+        postorder(tree.right)
+        print(tree.root)
+
+def inorder(tree):
+    if tree != None:
+        inorder(tree.left)
+        print(tree.root)
+        inorder(tree.right)
+
 
 if __name__ == '__main__':
     r = BinaryTree('a')
@@ -46,4 +65,8 @@ if __name__ == '__main__':
     r_right.root = 'hello'
     print(r.root, r.left.root, r.right.root)
 
-                    
+    print('\n')
+    preorder(r), print('\n')
+    postorder(r), print('\n')
+    inorder(r), print('\n')
+
