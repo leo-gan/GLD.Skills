@@ -59,6 +59,54 @@ class BinHeap:
             self._perc_down(i)
             i -= 1
 
+class BinaryHeap:
+    def __init__(self):
+        self._heap = [0]
+        self._size = 0
+
+    def insert(self, item):
+        self._heap.append(item)
+        self._size += 1
+        self._percolate_up(self._size)
+
+    def _percolate_up(self, i):
+        while i//2 > 0:
+            if self._heap[i] > self._heap[i//2]:
+                return
+            self._heap[i], self._heap[i//2] = self._heap[i//2], self._heap[i]
+            i = i//2
+
+    def size(self):
+        return self._size
+
+    def del_min(self):
+        if self._size == 0:
+            return None
+        temp = self._heap[1]
+        self._heap[1] = self._heap[self._size]
+        self._size -= 1
+        self._heap.pop()
+        self._percolate_down(1)
+        return temp
+
+    def _percolate_down(self, i):
+        while i*2 <= self._size:
+            min_child_idx = self.min_child(i)
+            if self._heap[i] < self._heap[min_child_idx]: return
+            self._heap[i], self._heap[min_child_idx] = self._heap[min_child_idx], self._heap[i]
+            i = min_child_idx
+
+    def is_empty(self):
+        return False if self._size > 0 else True
+
+    def min_child(self, i):
+        if self._size <= 2*i:
+            return 2*i
+        else:
+            return 2*i if self._heap[2*i] < self._heap[2*i+1] else 2*i+1
+
+    def find_min(self):
+        return self._heap[1]
 
 if __name__ == '__main__':
     import random
@@ -68,5 +116,12 @@ if __name__ == '__main__':
     print(t)
 
     [heap.insert(tt) for tt in t]
+    print([heap.del_min() for i in range(heap.size())])
 
+    heap = BinHeap()
+    heap.build_heap(t)
+    print([heap.del_min() for i in range(heap.size())])
+
+    heap = BinaryHeap()
+    [heap.insert(tt) for tt in t]
     print([heap.del_min() for i in range(heap.size())])
