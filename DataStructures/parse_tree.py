@@ -38,3 +38,7 @@ if __name__ == '__main__':
     print('\n')
     print(exp)
     preorder(pt)
+    print('\n')
+    postorder(pt)
+    print('\n')
+    inorder(pt)

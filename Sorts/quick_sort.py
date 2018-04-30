@@ -25,17 +25,19 @@ def quick_srt(ar):
     head = [el for el in ar if el < pivot]
     middle = [el for el in ar if el == pivot]
     tail = [el for el in ar if el > pivot]
-    print('   >',  pivot, head, middle, tail)
+    print('   ->',  head, '<', middle, '<', tail)
     head = quick_srt(head)
     tail = quick_srt(tail)
-    print('     <', pivot, head, middle, tail)
+    print('     <-', head, middle, tail)
     return head + middle + tail
-import random
-def main():
-    ar = random.sample(range(10, 100), 20)
-    print(ar, '\n')
-    # print(quick_sort(ar), '\n')
-    # print(qsort(ar))
-    print(quick_srt(ar))
 
-main()
+if __name__ == '__main__':
+    import random
+    def main():
+        ar = random.sample(range(10, 100), 20)
+        print(ar, '\n')
+        # print(quick_sort(ar), '\n')
+        # print(qsort(ar))
+        print(quick_srt(ar))
+
+    main()

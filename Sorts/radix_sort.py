@@ -11,15 +11,15 @@ def baskets_to_list(baskets):
 
 import math
 def radix_sort(ar):
-    base = int(math.sqrt(max(ar)))
-    print('base:', base)
+    #base = int(math.sqrt(max(ar)))
+    base = 10
+    print('base:', base, 'max(ar):', max(ar))
     pos = 0 # right side
-    print(base**pos, max(ar))
     while (base**(pos)) < max(ar):
         ar = baskets_to_list(list_to_baskets(ar, base, pos))
         pos += 1
         print(pos, ar)
-    print(ar)
+    print('\n', ar)
     return ar
 
 import random
